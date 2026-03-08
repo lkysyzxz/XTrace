@@ -1,9 +1,11 @@
 # PROJECT KNOWLEDGE BASE
 
 **Generated:** 2026-03-05
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
+**Commit:** f2cb307
+**Branch:** master
 **Project:** XTrace
-**Stack:** Unity 6 (6000.2.7f2) + URP + C#
+**Stack:** Unity 6 (6000.2.7f2) + URP + C# (.NET Standard 2.1)
 
 ## OVERVIEW
 
@@ -14,19 +16,19 @@ Runtime state collection/tracing module for Unity. Provides static sampling inte
 ```
 XTrace/
 ├── Assets/
-│   └── XTrace/
-│       ├── Runtime/
-│       │   ├── TracePoint.cs         # Single trace record
-│       │   ├── XTraceData.cs         # Session container + metadata
-│       │   ├── XTraceSession.cs      # Session management (internal)
-│       │   ├── XTraceSampler.cs      # Public static API
-│       │   ├── XTraceExporter.cs     # File export + compression (internal)
-│       │   └── XTraceImporter.cs     # File import + decompression (internal)
-│       └── Editor/
-│           └── XTraceViewerWindow.cs # Editor window for viewing .xtrace files
-├── XTrace.Tests/                   # dotnet unit tests
+│   ├── XTrace/                     # Runtime tracing module
+│   │   ├── Runtime/                # Core: TracePoint, XTraceSampler, XTraceSession
+│   │   └── Editor/                 # XTraceViewerWindow
+│   └── McpForUnity/                # MCP server integration (70 files) → see AGENTS.md
+│       ├── Core/                   # McpServerHost, Protocol types
+│       ├── Server/                 # McpServer, Tool handlers
+│       ├── Transport/              # HTTP + SSE transport
+│       ├── Editor/                 # 80 editor tools
+│       └── Samples/                # Usage examples
+├── XTrace.Tests/                   # dotnet unit tests → see AGENTS.md
 │   ├── XTrace.Tests.csproj
 │   └── XTraceCoreTests.cs
+├── .opencode/skills/unity-dev/     # Unity development skill
 ├── Packages/
 └── ProjectSettings/
 ```
@@ -156,14 +158,6 @@ Layout:
 - JSON export functionality (2026-03-07)
 - Editor window with adaptive width layout (2026-03-07)
 - 18 unit tests passing
-
-**Recent Updates** (2026-03-07):
-- Added JSON export button to convert .xtrace to readable JSON
-- Removed manual splitter, replaced with auto-adaptive width
-- Left panel width calculates based on content (SessionInfo + TracePoints)
-- Right panel fills remaining horizontal space
-- Performance optimized: `wantsLessLayoutEvents = true`
-- Width caching prevents per-frame recalculation
 
 **Supported Types**: int, bool, float, double, string, long, byte, short, decimal, char, DateTime, TimeSpan, Vector2, Vector3, Vector4, Quaternion, Color, object
 
@@ -1041,4 +1035,3 @@ void UnregisterInstanceTools(string instanceId)
 - Test assembly: `ModelContextProtocol.Unity.Tests`
 - Use Unity Test Framework (`[Test]`, `[UnityTest]`)
 - `InternalsVisibleTo` configured for internal member access
-
