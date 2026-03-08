@@ -3,31 +3,31 @@
     {
       "UniqueName": "PlayerHealth",
       "Description": "Tracks player health changes",
-      "EnabledByDefault": true,
+      "EnabledByDefault": false,
       "CaptureCallStack": false
     },
     {
       "UniqueName": "MovementSpeed",
       "Description": "Tracks character movement speed",
-      "EnabledByDefault": true,
+      "EnabledByDefault": false,
       "CaptureCallStack": false
     },
     {
       "UniqueName": "CombatEvents",
       "Description": "Logs combat-related events",
-      "EnabledByDefault": true,
+      "EnabledByDefault": false,
       "CaptureCallStack": false
     },
     {
       "UniqueName": "InventoryChanges",
       "Description": "Tracks inventory additions/removals",
-      "EnabledByDefault": true,
+      "EnabledByDefault": false,
       "CaptureCallStack": false
     },
     {
       "UniqueName": "DeltaTime",
       "Description": "Frame delta time monitor",
-      "EnabledByDefault": true,
+      "EnabledByDefault": false,
       "CaptureCallStack": false
     }
   ],
