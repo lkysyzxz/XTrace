@@ -1,0 +1,35 @@
+{
+  "Samplers": [
+    {
+      "UniqueName": "PlayerHealth",
+      "Description": "Tracks player health changes",
+      "EnabledByDefault": true,
+      "CaptureCallStack": false
+    },
+    {
+      "UniqueName": "MovementSpeed",
+      "Description": "Tracks character movement speed",
+      "EnabledByDefault": true,
+      "CaptureCallStack": false
+    },
+    {
+      "UniqueName": "CombatEvents",
+      "Description": "Logs combat-related events",
+      "EnabledByDefault": true,
+      "CaptureCallStack": false
+    },
+    {
+      "UniqueName": "InventoryChanges",
+      "Description": "Tracks inventory additions/removals",
+      "EnabledByDefault": true,
+      "CaptureCallStack": false
+    },
+    {
+      "UniqueName": "DeltaTime",
+      "Description": "Frame delta time monitor",
+      "EnabledByDefault": true,
+      "CaptureCallStack": false
+    }
+  ],
+  "EnabledByDefault": true
+}
